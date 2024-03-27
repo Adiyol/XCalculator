@@ -9,7 +9,9 @@ function App() {
   const [result, setResult] = useState()
   const [showResult, setShowResult] = useState(false)
   function addToExpression(value) {
-    if(value === "=") {
+    if(value === "=" && expression === "") {
+      setResult("Error")
+    } else if(value === "=") {
       setResult(eval(expression))
       // setExpression("")
       setShowResult(true)
@@ -24,7 +26,7 @@ function App() {
   return (
     <div className={styles.container}>
       <h1>React Calculator</h1>
-      <input value={expression} />
+      <input type="text" value={expression} />
       {showResult && <div className={styles.result}>{result}</div>}
       <div className={styles.row}>
         <CustomButton value={"7"} addToExpression={addToExpression}/>
