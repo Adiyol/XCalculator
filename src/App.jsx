@@ -11,6 +11,7 @@ function App() {
   function addToExpression(value) {
     if(value === "=" && expression === "") {
       setResult("Error")
+      setShowResult(true)
     } else if(value === "=") {
       setResult(eval(expression))
       // setExpression("")
